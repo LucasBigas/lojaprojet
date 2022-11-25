@@ -1,5 +1,7 @@
 package br.univille.lojaprojet.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.lojaprojet.Entity.ComissaoVenda;
+import br.univille.lojaprojet.service.AtendenteService;
 import br.univille.lojaprojet.service.ComissaoVendaService;
 
 
@@ -20,6 +23,9 @@ public class ComissaoVendaController {
     @Autowired
     private ComissaoVendaService service;
 
+    @Autowired
+    private AtendenteService atendenteService;
+
     @GetMapping
     public ModelAndView index(){
         var listaComissao = service.getAll();
@@ -29,7 +35,11 @@ public class ComissaoVendaController {
     @GetMapping("/novo")
     public ModelAndView novo(){
         var comissao = new ComissaoVenda();
-        return new ModelAndView("comissao/form","comissao",comissao);
+        var listaAtendentes = atendenteService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("comissao", comissao);
+        dados.put("listaAtendentes", listaAtendentes);
+        return new ModelAndView("comissao/form",dados);
     }
 
     @PostMapping(params = "form")
@@ -41,6 +51,10 @@ public class ComissaoVendaController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var umaComissao = service.findById(id);
-        return new ModelAndView("comissao/form","comissao",umaComissao);
+        var listaAtendentes = atendenteService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("comissao", umaComissao);
+        dados.put("listaAtendentes", listaAtendentes);
+        return new ModelAndView("comissao/form",dados);
     }
 }

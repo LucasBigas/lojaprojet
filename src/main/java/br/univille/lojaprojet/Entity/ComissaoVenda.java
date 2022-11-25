@@ -1,10 +1,12 @@
 package br.univille.lojaprojet.Entity;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,6 +22,15 @@ public class ComissaoVenda {
     private Date data;
     private float valor;
 
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Atendente vendedor;
+
+    public Atendente getVendedor() {
+        return vendedor;
+    }
+    public void setVendedor(Atendente vendedor) {
+        this.vendedor = vendedor;
+    }
     public long getId() {
         return id;
     }
