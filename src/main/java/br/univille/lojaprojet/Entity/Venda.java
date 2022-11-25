@@ -2,10 +2,12 @@ package br.univille.lojaprojet.Entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,6 +23,23 @@ public class Venda {
     private Date data;
     private int numeroVenda;
 
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Cliente comprador;
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Atendente vendedor;
+
+    public Cliente getComprador() {
+        return comprador;
+    }
+    public void setComprador(Cliente comprador) {
+        this.comprador = comprador;
+    }
+    public Atendente getVendedor() {
+        return vendedor;
+    }
+    public void setVendedor(Atendente vendedor) {
+        this.vendedor = vendedor;
+    }
     public long getId() {
         return id;
     }
