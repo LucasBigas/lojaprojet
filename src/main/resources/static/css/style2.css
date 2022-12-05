@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: blanchedalmond;
+}
+.logo{
+    text-align: center;
+    padding: 20px;
+    font-size: 1.8rem;
+}
+.nav div{
+    padding: 20px;
+    margin: 10px;
+}
+.nav ul{
+    text-decoration: none;
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    font-size: 1.8rem;
+}
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+.nav li{
+    list-style: none;
+}
+.container{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: 'prod1 prod2'
+    'prod3 prod4';
+
+}
+.prod1{
+    text-align: center;
+    grid-area: prod1;
+}
+.prod1 h1{
+    margin: 30px;
+    padding: 20px;
+}
+.prod1 span{
+    font-size: 30px;
+    padding: 20px;
+}
+.prod2{
+    text-align: center;
+    grid-area: prod2;
+}
+.prod3{
+    text-align: center;
+    grid-area: prod3;
+}
+.prod4{
+    text-align: center;
+    grid-area: prod4;
+}
+.prod2 h1{
+    margin: 30px;
+    padding: 20px;
+}
+.prod2 span{
+    font-size: 30px;
+    padding: 20px;
+}
+.prod3 h1{
+    margin: 30px;
+    padding: 20px;
+}
+.prod3 span{
+    font-size: 30px;
+    padding: 20px;
+}
+.prod4 h1{
+    margin: 30px;
+    padding: 20px;
+}
+.prod4 span{
+    font-size: 30px;
+    padding: 20px;
+}
+img{
+    width: 85%;
+    
+}
+.titulo{
+    font-size: 1.8em;
+    letter-spacing: .6em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}

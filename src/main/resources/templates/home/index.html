@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head >
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+        <link  th:href="@{/css/style.css}" rel="stylesheet">
+    </head>
+    
+    <body>
+        <nav class="nav">
+            <h1 class="logo">Adidas</h1>
+            <div>
+                <input type="text">
+                <button type="button" class="btn btn-primary">Buscar</button>
+            </div>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/home/produto">Produtos</a></li>
+            </ul>
+        </nav>
+        <main class="container">
+            <div class="pr1">
+                <h1>Tenis Adidas A7</h1>
+                <span>R$ 340,00</span>
+                <img src="./img/preto.png " alt="tenis">
+            </div>
+            <div class="pr2">
+                <h1>Tenis Adidas B7</h1>
+                <span>R$ 300,00</span>
+                <img src="./img/azul.png" alt="tenis2">
+            </div>
+        </main>
+</html>
